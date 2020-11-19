@@ -6,7 +6,7 @@ class db{
     public $conn;
     public $pod;
     public function __construct(){
-        self::connect('host' , 'database' , 'user' , 'password');
+        $this->connect('host' , 'database' , 'user' , 'password');
     }
     public function connect($host, $db , $user , $pass ){
         //  include_once 'reyestr/database.php';
