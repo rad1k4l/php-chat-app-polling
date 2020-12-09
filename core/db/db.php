@@ -3,10 +3,18 @@
 namespace core\db;
 
 use PDO;
+use PDOStatement;
 
 class db
 {
+    /**
+     * @var PDO
+     */
     public $conn;
+
+    /**
+     * @var PDOStatement
+     */
     public $pod;
 
     public function __construct()
@@ -14,9 +22,8 @@ class db
         $this->connect('host', 'database', 'user', 'password');
     }
 
-    public function connect($host, $db, $user, $pass)
+    public function connect($host, $db, $user, $pass): PDO
     {
-        //  include_once 'reyestr/database.php';
         $dsn = 'mysql:host=' . $host . ';dbname=' . $db . ';charset=utf8';
         $password = $pass;
         $this->conn = new \PDO($dsn, $user, $password, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
@@ -37,7 +44,7 @@ class db
 
     }
 
-    public function query($sql)
+    public function query($sql): bool
     {
         $pod = $this->conn->prepare($sql);
 
