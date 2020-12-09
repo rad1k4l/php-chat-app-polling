@@ -44,7 +44,7 @@ class db
 
     }
 
-    public function query($sql): bool
+    public function query($sql)
     {
         $pod = $this->conn->prepare($sql);
 
@@ -59,5 +59,3 @@ class db
         }
     }
 }
-
-?>
